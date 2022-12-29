@@ -1,4 +1,4 @@
-package org.codewars;
+package org.codewars.kyu876;
 
 import java.util.ArrayList;
 import java.util.Collections;

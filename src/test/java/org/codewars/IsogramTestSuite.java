@@ -1,5 +1,6 @@
 package org.codewars;
 
+import org.codewars.kyu876.Isogram;
 import org.junit.jupiter.api.Test;
 
 import java.security.SecureRandom;
