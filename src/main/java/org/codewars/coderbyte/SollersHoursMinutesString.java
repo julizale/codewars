@@ -1,8 +1,44 @@
 package org.codewars.coderbyte;
 
-public class Sollers2 {
+public class SollersHoursMinutesString {
 
+    public int stringChallenge(String str) {
+        String[] arr = str.split("-");
+        String start = arr[0];
+        String end = arr[1];
+        String[] startArr = start.split(":");
+        String[] endArr = end.split(":");
+        int startHour = Integer.parseInt(startArr[0]);
+        int startMinutes = Integer.parseInt(startArr[1].substring(0,2));
+        if (startHour == 12) {
+            startHour = 0;
+        }
+        if (startArr[1].charAt(2) == 'p') {
+            startHour += 12;
+        }
+        System.out.println("start minutes " +startMinutes);
+        int endHour = Integer.parseInt(endArr[0]);
+        int endMinutes = Integer.parseInt(endArr[1].substring(0,2));
+        if (endHour == 12) {
+            endHour = 0;
+        }
+        if (endArr[1].charAt(2) == 'p') {
+            endHour += 12;
+        }
+        System.out.println("end Minutes " + endMinutes);
 
+        int numOfHours = endHour - startHour;
+        if (numOfHours < 0) {
+            numOfHours += 24;
+        }
+        int numOfMinutes = endMinutes - startMinutes;
+        int result = numOfHours * 60 + numOfMinutes;
+        if(result < 0) {
+            result += 24 * 60;
+        }
+
+        return result;
+    }
 }
 
 //import java.util.*;
