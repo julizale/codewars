@@ -15,5 +15,7 @@ class SolutionTest {
         assertEquals(3, solution.lengthOfLongestSubstring("abcabcbb"));
         assertEquals(1, solution.lengthOfLongestSubstring("bbbbb"));
         assertEquals(3, solution.lengthOfLongestSubstring("pwwkew"));
+        assertEquals(2, solution.lengthOfLongestSubstring("aab"));
+        assertEquals(3, solution.lengthOfLongestSubstring("dvdf"));
     }
 }

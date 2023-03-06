@@ -12,6 +12,7 @@ class Solution {
                 if (sub.length() > longestSub.length()) {
                     longestSub = sub.toString();
                 }
+                i -= sub.length() - sub.toString().indexOf(s.charAt(i));
                 sub = new StringBuilder();
             }
         }
@@ -21,3 +22,4 @@ class Solution {
         return longestSub.length();
     }
 }
+
