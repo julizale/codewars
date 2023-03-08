@@ -61,5 +61,27 @@ class Solution {
         }
         return result;
     }
+
+    public String longestPalindrome(String s) {
+        String longest = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (s.length() - i < longest.length()) {
+                break;
+            }
+            for (int j = s.length(); j >= i; j--) {
+                if (j - i < longest.length()) {
+                    break;
+                }
+                String sub = s.substring(i,j);
+                if (sub.equals(new StringBuilder(sub).reverse().toString())) {
+                    if (sub.length() > longest.length()) {
+                        longest = sub;
+                    }
+                    break;
+                }
+            }
+        }
+        return longest;
+    }
 }
 
