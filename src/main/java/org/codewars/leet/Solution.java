@@ -72,16 +72,52 @@ class Solution {
                 if (j - i < longest.length()) {
                     break;
                 }
-                String sub = s.substring(i,j);
-                if (sub.equals(new StringBuilder(sub).reverse().toString())) {
-                    if (sub.length() > longest.length()) {
-                        longest = sub;
+                if (isPalindrome(s, i, j)) {
+                    if (j - i > longest.length()) {
+                        longest = s.substring(i, j);
                     }
                     break;
                 }
+//                Approach above faster than below, cos of not creating substring in every test for palindrome
+
+//                String sub = s.substring(i,j);
+//                if (sub.equals(new StringBuilder(sub).reverse().toString())) {
+//                    if (sub.length() > longest.length()) {
+//                        longest = sub;
+//                    }
+//                    break;
+//                }
             }
         }
         return longest;
+    }
+
+    private boolean isPalindrome(String s, int start, int end) {
+        while (start <= end) {
+            if (s.charAt(start) != s.charAt(end-1)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+
+    static String toCamelCase(String s){
+        String[] words;
+        if (s.indexOf('-') != -1) {
+            words = s.split("-");
+        } else if (s.indexOf('_') != -1) {
+            words = s.split("_");
+        } else {
+            return s;
+        }
+        StringBuilder result = new StringBuilder(words[0]);
+        for (int i = 1; i < words.length; i++) {
+            result.append(Character.toUpperCase(words[i].charAt(0)));
+            result.append(words[i].substring(1));
+        }
+        return result.toString();
     }
 }
 
