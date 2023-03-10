@@ -28,4 +28,13 @@ public class Solution {
         }
         return new Object[]{String.valueOf(winner), longestCount};
     }
+
+    public String encrypt(String text, int rule) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            int num = ((int) text.charAt(i) + rule) % 256;
+            result.append((char) num);
+        }
+        return result.toString();
+    }
 }

@@ -15,4 +15,12 @@ class SolutionTest {
         assertArrayEquals(new Object[]{"a", 2}, Solution.longestRepetition("aabb"));
         assertArrayEquals(new Object[]{"", 0}, Solution.longestRepetition(""));
     }
+
+    @Test
+    public void testDecrypt() {
+        Solution enc = new Solution();
+        assertEquals("", enc.encrypt("", 1));
+        assertEquals( "b", enc.encrypt("a", 1));
+        assertEquals("rngcug\"gpet{rv\"og", enc.encrypt("please encrypt me", 2));
+    }
 }
