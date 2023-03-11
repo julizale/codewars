@@ -54,4 +54,14 @@ class SolutionTest {
         System.out.println("input: "+input);
         assertEquals("theStealthWarrior", Solution.toCamelCase(input));
     }
+
+    @Test
+    public void testCountLettersInGoodWords() {
+        Solution solution = new Solution();
+        String[] arr = new String[] {"cat","bt","hat","tree"};
+
+        assertEquals(6, solution.countCharacters(arr, "atach"));
+    }
+
+
 }
