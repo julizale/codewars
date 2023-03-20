@@ -73,6 +73,22 @@ class SolutionTest {
     }
 
     @Test
+    public void testlongestCommonPrefix() {
+        //Given
+        Solution solution = new Solution();
+        String[] arr1 = new String[] {"cat","bt","hat","tree"};
+        String[] arr2 = new String[] {"flower","flow","flight"};
+        String[] arr3 = new String[] {"flower","flower","flower","flower","flower"};
+        String[] arr4 = new String[] {"a"};
+
+        //When & Then
+        assertEquals("", solution.longestCommonPrefix(arr1));
+        assertEquals("fl", solution.longestCommonPrefix(arr2));
+        assertEquals("flower", solution.longestCommonPrefix(arr3));
+        assertEquals("a", solution.longestCommonPrefix(arr4));
+    }
+
+    @Test
     public void testTwoSum() {
         //Given
         Solution solution = new Solution();

@@ -171,6 +171,29 @@ class Solution {
         return result;
     }
 
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 1) {
+            return strs[0];
+        }
+        String longest = "";
+        for (int i = 1; i < strs[0].length() + 1; i++) {
+            String prefix = strs[0].substring(0,i);
+            for (int j = 1; j < strs.length; j++) {
+                if (strs[j].length() < prefix.length()) {
+                    return longest;
+                }
+                if (prefix.equals(strs[j].substring(0,i))) {
+                    if (j == strs.length - 1) {
+                        longest = prefix;
+                    }
+                } else {
+                    return longest;
+                }
+            }
+        }
+        return longest;
+    }
+
     //You have n dice, and each die has k faces numbered from 1 to k.
     //
     //Given three integers n, k, and target, return the number of possible ways (out of the kn total ways) to roll the dice, so the sum of the face-up numbers equals target. Since the answer may be too large, return it modulo 109 + 7.
