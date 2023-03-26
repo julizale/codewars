@@ -1,9 +1,44 @@
 package org.codewars.leet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Solution {
+
+    public List<Integer> majorityElement(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i: nums) {
+            if(map.containsKey(i)) {
+                map.put(i, map.get(i) + 1);
+            } else {
+                map.put(i, 1);
+            }
+        }
+        int minVal = nums.length / 3;
+        List<Integer> result = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+            if (entry.getValue() > minVal) {
+                result.add(entry.getKey());
+            }
+        }
+        return result;
+    }
+    public boolean rotateString(String s, String goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        StringBuilder sb = new StringBuilder(s);
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(sb.charAt(0));
+            sb.deleteCharAt(0);
+            if (goal.equals(sb.toString())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int lengthOfLongestSubstring(String s) {
         StringBuilder sub = new StringBuilder();
@@ -176,7 +211,7 @@ class Solution {
             return strs[0];
         }
         String longest = "";
-        for (int i = 1; i < strs[0].length() + 1; i++) {
+        for (int i = 1; i <= strs[0].length(); i++) {
             String prefix = strs[0].substring(0,i);
             for (int j = 1; j < strs.length; j++) {
                 if (strs[j].length() < prefix.length()) {

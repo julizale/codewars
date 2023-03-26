@@ -5,11 +5,21 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SolutionTest {
 
+    @Test
+    void testRotateString() {
+        //Given
+        Solution solution = new Solution();
+
+        //When & Then
+        assertTrue(solution.rotateString("abcde", "abcde"));
+        assertTrue(solution.rotateString("abcde", "cdeab"));
+        assertTrue(solution.rotateString("abcde", "deabc"));
+        assertFalse(solution.rotateString("abcde", "abced"));
+    }
     @Test
     void testLengthOfLongestSubstring() {
         //Given
