@@ -23,4 +23,10 @@ class SolutionTest {
         assertEquals( "b", enc.encrypt("a", 1));
         assertEquals("rngcug\"gpet{rv\"og", enc.encrypt("please encrypt me", 2));
     }
+
+    @Test
+    public void fixedTest() {
+        assertEquals(42, Solution.betweenExtremes(new int[]{21, 34, 54, 43, 26, 12}));
+        assertEquals(99, Solution.betweenExtremes(new int[]{-1, -41, -77, -100}));
+    }
 }

@@ -37,4 +37,19 @@ public class Solution {
         }
         return result.toString();
     }
+
+    public static int betweenExtremes(int[] numbers)
+    {
+        int max = numbers[0];
+        int min = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+        return max - min;
+    }
 }
