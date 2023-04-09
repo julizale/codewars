@@ -7,6 +7,19 @@ import java.util.Map;
 
 class Solution {
 
+    public String convert(String s, int numRows) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 1; i <= numRows; i++) {
+            result.append(s.charAt(i-1));
+            int j = 0;
+            while (numRows + j*(numRows - i - 1) < s.length()) {
+                result.append(s.charAt(numRows + j * (numRows - i - 1)));
+                j++;
+            }
+        }
+        return result.toString();
+    }
+
     public List<Integer> majorityElement(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i: nums) {

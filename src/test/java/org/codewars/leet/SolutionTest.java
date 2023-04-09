@@ -3,12 +3,19 @@ package org.codewars.leet;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SolutionTest {
 
+    @Test
+    void testZigZagConvert() {
+        //Given
+        Solution solution = new Solution();
+
+        //When & Then
+        assertEquals("PINALSIGYAHRPI", solution.convert("PAYPALISHIRING", 4));
+    }
     @Test
     void testRotateString() {
         //Given
