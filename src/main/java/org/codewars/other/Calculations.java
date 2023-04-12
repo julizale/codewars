@@ -6,6 +6,19 @@ import java.util.Map;
 
 public class Calculations {
 
+    public List<Integer> sort(List<Integer> list){
+        for (int n = list.size()-1; n > 0; n--) {
+            for (int i = 0; i < n; i++) {
+                if (list.get(i) > list.get(i+1)) {
+                    Integer next = list.get(i+1);
+                    list.set(i+1, list.get(i));
+                    list.set(i, next);
+                }
+            }
+        }
+        return list;
+    }
+
     private double calculateAverage(Grades grades) {
         List<Integer> allGrades = new ArrayList<>();
         allGrades.addAll(grades.getEnglish());
